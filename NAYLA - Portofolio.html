@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nayla Az Zahra — HR & Recruitment Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F3EE;
+    --warm-white: #FDFAF6;
+    --navy: #1A2744;
+    --navy-light: #2E3F6A;
+    --gold: #C9A84C;
+    --gold-light: #E8D49A;
+    --muted: #7A7568;
+    --border: #E2DDD6;
+    --accent: #D4523A;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    padding: 8px 16px;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px;
+    width: fit-content;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+
+  .hero-name span {
+    color: var(--gold);
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero-tagline {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    max-width: 380px;
+    margin-bottom: 48px;
+  }
+
+  .hero-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .contact-item .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 80px 80px 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 48px;
+    width: 100%;
+    max-width: 340px;
+    backdrop-filter: blur(10px);
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .stat-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin-bottom: 28px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    background: rgba(201,168,76,0.12);
+    color: var(--gold-light);
+    border: 1px solid rgba(201,168,76,0.2);
+    letter-spacing: 0.5px;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 60px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 60px;
+    color: var(--navy);
+  }
+
+  /* EXPERIENCE TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px;
+    width: 1px;
+    height: calc(100% - 8px);
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 64px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -46px; top: 6px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 4px rgba(201,168,76,0.15);
+  }
+
+  .timeline-dot.current {
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(212,82,58,0.15);
+  }
+
+  .timeline-period {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .timeline-company {
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .timeline-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: rgba(212,82,58,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(212,82,58,0.2);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 10px;
+    vertical-align: middle;
+    font-weight: 500;
+  }
+
+  .timeline-duties {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .timeline-duties li {
+    display: flex;
+    gap: 14px;
+    font-size: 14px;
+    color: #4A4640;
+    line-height: 1.6;
+  }
+
+  .timeline-duties li::before {
+    content: '—';
+    color: var(--gold);
+    flex-shrink: 0;
+    font-weight: 300;
+  }
+
+  /* SKILLS SECTION */
+  .skills-section {
+    background: var(--navy);
+    padding: 100px 0;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .skills-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 80px;
+  }
+
+  .skills-section .section-label { color: var(--gold); }
+  .skills-section .section-title { color: #fff; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .skill-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 32px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .skill-card:hover {
+    border-color: rgba(201,168,76,0.3);
+    transform: translateY(-4px);
+  }
+
+  .skill-card-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .skill-card-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .skill-list li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-list li::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-text {
+    font-size: 16px;
+    color: #4A4640;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .about-text p + p { margin-top: 20px; }
+
+  .about-highlight {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 28px 32px;
+    margin-top: 32px;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+
+  .value-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .value-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 24px;
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.3s;
+  }
+
+  .value-item:hover { border-color: var(--gold); }
+
+  .value-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 36px;
+  }
+
+  .value-content h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .value-content p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* EDUCATION */
+  .edu-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .edu-year {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+    opacity: 0.4;
+  }
+
+  .edu-divider {
+    width: 1px;
+    height: 80px;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+
+  .edu-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .edu-major {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .edu-period {
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--navy);
+    text-align: center;
+    padding: 100px 80px;
+  }
+
+  .cta-section .section-label {
+    justify-content: center;
+  }
+
+  .cta-section .section-label::after { display: none; }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .cta-title em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .cta-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 16px 36px;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .cta-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * {
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+  .hero-tag { animation-delay: 0.1s; }
+  .hero-name { animation-delay: 0.25s; }
+  .hero-tagline { animation-delay: 0.4s; }
+  .hero-contact { animation-delay: 0.55s; }
+  .hero-card { animation: fadeUp 0.8s 0.3s ease forwards; opacity: 0; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 40px; }
+    .hero-right { padding: 0 40px 60px; }
+    .hero-card { max-width: 100%; }
+    section { padding: 60px 40px; }
+    .skills-inner { padding: 0 40px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .edu-card { flex-direction: column; align-items: flex-start; gap: 16px; padding: 32px; }
+    .edu-divider { width: 60px; height: 1px; }
+    .cta-section { padding: 60px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <span class="hero-tag">HR & Recruitment Portfolio</span>
+    <h1 class="hero-name">
+      Nayla
+      <span>Az Zahra</span>
+    </h1>
+    <p class="hero-tagline">
+      HR & Recruitment Virtual Assistant specializing in end-to-end recruitment, employee onboarding, and HR administration.
+    </p>
+    <div class="hero-contact">
+      <div class="contact-item"><span class="dot"></span> Cipondoh, Tangerang, Indonesia</div>
+      <div class="contact-item"><span class="dot"></span> naaylaazr@gmail.com</div>
+      <div class="contact-item"><span class="dot"></span> 085122141009</div>
+      <div class="contact-item"><span class="dot"></span> Available for remote work</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card">
+      <div class="stat-grid">
+        <div class="stat-item">
+          <span class="stat-number">2+</span>
+          <span class="stat-label">Years Exp.</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">E2E</span>
+          <span class="stat-label">Recruitment</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">HR</span>
+          <span class="stat-label">Admin</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">VA</span>
+          <span class="stat-label">Remote Ready</span>
+        </div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="skill-tags">
+        <span class="skill-tag">Recruitment</span>
+        <span class="skill-tag">Onboarding</span>
+        <span class="skill-tag">Data Entry</span>
+        <span class="skill-tag">MS Excel</span>
+        <span class="skill-tag">Google Workspace</span>
+        <span class="skill-tag">HR Admin</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section>
+  <p class="section-label">About Me</p>
+  <h2 class="section-title">Turning HR processes<br>into smooth operations</h2>
+  <div class="about-grid">
+    <div>
+      <div class="about-text">
+        <p>I am a dedicated HR & Recruitment Assistant with hands-on experience managing the full recruitment lifecycle — from sourcing and screening candidates to conducting HR interviews and recommending top talent to hiring managers.</p>
+        <p>Currently interning at PT. Inovasi Sukses Sentosa in Jakarta, I handle recruitment coordination, employee onboarding, HR documentation, and administrative support across multiple departments.</p>
+        <div class="about-highlight">
+          "Detail-oriented, reliable, and genuinely passionate about creating seamless HR experiences."
+        </div>
+      </div>
+    </div>
+    <div class="value-list">
+      <div class="value-item">
+        <span class="value-number">01</span>
+        <div class="value-content">
+          <h4>End-to-End Recruitment</h4>
+          <p>CV screening, candidate outreach, scheduling, HR interviews, and final recommendations.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <span class="value-number">02</span>
+        <div class="value-content">
+          <h4>Onboarding Coordination</h4>
+          <p>Full onboarding support including document preparation, orientation, and cross-team coordination.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <span class="value-number">03</span>
+        <div class="value-content">
+          <h4>HR Documentation</h4>
+          <p>Managing recruitment reports, attendance data, reimbursement records, and procurement admin.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <span class="value-number">04</span>
+        <div class="value-content">
+          <h4>Remote & Async Ready</h4>
+          <p>Comfortable with digital tools and independent work. Available for flexible collaboration.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<div style="background: var(--warm-white); padding: 1px 0;">
+<section>
+  <p class="section-label">Work Experience</p>
+  <h2 class="section-title">Where I've built<br>my expertise</h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot current"></div>
+      <p class="timeline-period">April 2026 — Present</p>
+      <h3 class="timeline-role">HR & Recruitment Intern <span class="timeline-badge">Current</span></h3>
+      <p class="timeline-company">PT. Inovasi Sukses Sentosa — Jakarta, Indonesia</p>
+      <ul class="timeline-duties">
+        <li>Managed end-to-end recruitment process including CV screening, candidate outreach, interview scheduling, HR interviews, and candidate recommendations to hiring managers.</li>
+        <li>Coordinated new employee onboarding including administrative preparation and orientation to ensure smooth adaptation.</li>
+        <li>Compiled and managed documents and reports related to recruitment, onboarding, reimbursement, and procurement activities.</li>
+        <li>Compiled monthly employee attendance data and reports using Microsoft Excel.</li>
+        <li>Acted as communication liaison between interns, employees, and the HR team for smooth daily operations.</li>
+        <li>Coordinated with internal teams across divisions to ensure administrative and organizational communication ran efficiently.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <p class="timeline-period">July 2025 — January 2026</p>
+      <h3 class="timeline-role">HR Administration Intern (PKL)</h3>
+      <p class="timeline-company">PT. Inovasi Sukses Sentosa — Jakarta, Indonesia</p>
+      <ul class="timeline-duties">
+        <li>Assisted with recruitment administration including CV screening, interview coordination, and documentation of selection results.</li>
+        <li>Managed and digitally archived personnel documents including employment contracts and correspondence.</li>
+        <li>Compiled and validated monthly employee attendance data using Microsoft Excel.</li>
+        <li>Supported new employee onboarding by preparing required documents and facilitating initial orientation.</li>
+        <li>Maintained regular communication and coordination with employees, interns, and HR team for administrative needs.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- SKILLS -->
+<div class="skills-section">
+  <div class="skills-inner">
+    <p class="section-label">Skills & Tools</p>
+    <h2 class="section-title">What I bring<br>to the table</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-icon">🎯</div>
+        <h3 class="skill-card-title">HR & Recruitment</h3>
+        <ul class="skill-list">
+          <li>End-to-end recruitment management</li>
+          <li>CV screening & shortlisting</li>
+          <li>Interview scheduling & coordination</li>
+          <li>HR interview & assessment</li>
+          <li>Candidate recommendation reports</li>
+          <li>Employee onboarding</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">📋</div>
+        <h3 class="skill-card-title">Administration</h3>
+        <ul class="skill-list">
+          <li>HR document management</li>
+          <li>Personnel file archiving</li>
+          <li>Attendance data reporting</li>
+          <li>Reimbursement documentation</li>
+          <li>Procurement administration</li>
+          <li>Cross-division coordination</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">💻</div>
+        <h3 class="skill-card-title">Tools & Software</h3>
+        <ul class="skill-list">
+          <li>Microsoft Excel</li>
+          <li>Microsoft Word & PowerPoint</li>
+          <li>Google Docs & Sheets</li>
+          <li>Google Drive</li>
+          <li>Digital filing systems</li>
+          <li>Remote collaboration tools</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<section>
+  <p class="section-label">Education</p>
+  <h2 class="section-title">Academic background</h2>
+  <div class="edu-card">
+    <div class="edu-year">SMK</div>
+    <div class="edu-divider"></div>
+    <div>
+      <h3 class="edu-name">SMK Negeri 3 Tangerang</h3>
+      <p class="edu-major">Computer and Telecommunication Network Engineering (Teknik Jaringan Komputer dan Telekomunikasi)</p>
+      <p class="edu-period">2023 — 2026</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <p class="section-label" style="justify-content:center; margin-bottom: 16px;">Let's Work Together</p>
+  <h2 class="cta-title">Ready to support your<br><em>HR & admin needs</em></h2>
+  <p class="cta-sub">Available for remote freelance work on Upwork and beyond.</p>
+  <a href="mailto:naaylaazr@gmail.com" class="cta-btn">
+    Get in Touch →
+  </a>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 150);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
